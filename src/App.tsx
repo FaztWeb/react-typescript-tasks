@@ -14,10 +14,15 @@ function App(): JSX.Element {
   const taskInput = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (e: FormElemEvent): void => {
-    e.preventDefault();
-    addTask(newTask);
-    setNewTask("");
+    
+    e.preventDefault();    
+      
     taskInput.current?.focus();
+    if(newTask === '') return;
+  
+    addTask(newTask); 
+    setNewTask('');
+  
   };
 
   const addTask = (name: string): void => {
